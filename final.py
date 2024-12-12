@@ -2,6 +2,8 @@
 Final
 Author: Susan E. Liao
 """
+# IMPORT STATEMENTS
+import random
 
 
 # CLASS DEFINITIONS 
@@ -201,7 +203,7 @@ class Sled:
         self.current_speed = 0
         self.top_speed = 475 # feet per second
         self.acceleration_rate = 125 # feet per second
-        self.distance_traveled = 0
+        self.distance_traveled = 5
 
     # move cars every fraction of a second
     def move(self):
@@ -296,3 +298,29 @@ groceries = {
 }
 
 preamble = "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America."
+
+
+words_start_end_same = [
+    "Area", "agenda", "arena", "bub", "civic", "deed", "dad", "eve", "fluff", "gag",
+    "gig", "level", "Madam", "Minim", "mum", "Nun", "otto", "pap", "peep", "pip",
+    "pop", "radar", "redder", "Refer", "reviver", "Rotator", "sagas", "sees",
+    "solos", "stats", "tenet", "tit", "tot", "wow", "kayak", "noon", "deified", "racecar", "redivider", "repaper", "rotor", "peep", "wow", "fluff",
+    "success", "aura", "solos", "tart", "trout", "scenes", "tart", "text", "tint"
+]
+
+random_words = [
+    "Elderberry", "thyme", "tangerine", "quail", "tomato", "zebra", "mint", "sage", 
+    "xylophone", "zucchini", "hazelnut", "honeydew", "date", "quinoa", "radish", 
+    "iceberg", "orange", "walnut", "papaya", "fennel", "cherry", "udon", "parsley", 
+    "xigua", "vinegar", "okra", "melon", "yam", "jackfruit", "dill", "guava", 
+    "blueberry", "oregano", "basil", "indigo", "cucumber", "lychee", "quince", 
+    "banana", "raspberry", "fennel", "spinach", "kale", "jicama", "dragonfruit", 
+    "apple", "grape", "nutmeg", "vanilla", "nectar", "honey", "watermelon", 
+    "mango", "strawberry", "kiwi", "cashew", "garlic", "umbra", "endive", 
+    "ugly", "fig", "rhubarb", "avocado", "kumquat", "nectarine", "plum", 
+    "yeast", "lemon", "almond", "eggplant"
+]
+
+word_list = words_start_end_same + random_words
+
+random.shuffle(word_list)
