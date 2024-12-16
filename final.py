@@ -90,33 +90,58 @@ class HotAirBalloon:
         return self.distance_traveled
 
 
-class Scooter:
-    # attributes of each car
-    def __init__(self):
-        self.paint_color = 'Aqua'
+
+
+
+class Car:
+    # Constructor function
+    def __init__(self, paint_color, max_speed, accel):
+        """
+        distance_traveled is given as meters.
+        
+        start_speed, max_speed, current_speed,
+        and accel(eration) are meters/second.
+        """
+        # Object attributes
+        self.paint_color = paint_color
+        self.max_speed = max_speed
+        self.accel = accel
+        self.start_speed = 0
         self.current_speed = 0
-        self.top_speed = 476 # feet per second
-        self.acceleration_rate = 100 # feet per second
         self.distance_traveled = 0
 
-    # move cars every fraction of a second
+    # Object method
     def move(self):
-        update_rate = 100 # fraction of a second
-        if self.current_speed < self.top_speed:
-            if (self.current_speed + self.acceleration_rate / update_rate) > self.top_speed:
-                self.current_speed = self.top_speed
-            else:
-                self.current_speed += self.acceleration_rate / update_rate
+        """
+        Moves the distance_traveled every
+        1/100 of a second.
+        """
+        update_rate = 100
+        if self.current_speed < self.max_speed:
+            # If not already at max_speed, car accelerates
+            self.current_speed += (self.accel / update_rate)
+        else:
+            # Car runs at max_speed
+            self.current_speed = self.max_speed
         self.distance_traveled += self.current_speed / update_rate
 
-    # report car color
-    def get_color(self):
-        return self.paint_color
+# Object instantiation
+# Colors
+colors = [
+    "amber", "beige", "black", "blue", "bronze", "brown", "chartreuse", "crimson",
+    "cyan", "gold", "gray", "green", "indigo", "lime", "magenta", "maroon",
+    "navy", "olive", "orange", "peach", "pink", "plum", "purple", "red",
+    "silver", "teal", "turquoise", "violet", "white", "yellow"
+]
 
-    # report distance traveled
-    def distance(self):
-        return self.distance_traveled
+car1 = Car('indigo', 405, 64); car2 = Car('olive', 483, 99); car3 = Car('black', 469, 88); car4 = Car('white', 415, 56); car5 = Car('purple', 451, 50); car6 = Car('bronze', 492, 97); car7 = Car('cyan', 431, 74); car8 = Car('brown', 407, 69); car9 = Car('magenta', 485, 94); car10 = Car('gold', 475, 91); car11 = Car('navy', 415, 56); car12 = Car('yellow', 438, 42); car13 = Car('blue', 415, 51); car14 = Car('peach', 451, 83); car15 = Car('crimson', 500, 47); car16 = Car('pink', 463, 73); car17 = Car('maroon', 486, 40); car18 = Car('violet', 445, 60); car19 = Car('teal', 422, 82); car20 = Car('red', 401, 60); car21 = Car('amber', 475, 72); car22 = Car('gray', 463, 76); car23 = Car('chartreuse', 496, 99); car24 = Car('green', 414, 46); car25 = Car('plum', 492, 50); car26 = Car('silver', 411, 71); car27 = Car('orange', 490, 92); car28 = Car('beige', 436, 97); car29 = Car('lime', 480, 56); car30 = Car('turquoise', 434, 44)
 
+# Groups of cars
+qualifier1 = [car1, car2, car3, car4, car5, car6, car7, car8, car9, car10]
+qualifier2 = [car11, car12, car13, car14, car15, car16, car17, car18, car19, car20]
+qualifier3 = [car21, car22, car23, car24, car25, car26, car27, car28, car29, car30]
+
+track_distance = 350000
 
 class Jetpack:
     # attributes of each car
@@ -269,11 +294,18 @@ for i in range(1, 8):
 
 nums = [430, True, 33, True, 570, None, 944, 201.8193280206529, 'Tuesday', 682, 98.94720670304808, 219, 164, 184.2687611259553, 914, 727, 469, 658, 446.88990787411996, None, 205, 931, 'Happy', 695.1520426719662, 200, 647, 987, 169, None, 423, 502.9061488446327, 865, 28.053809609905823, 845.5902700343556, True, 516, 237, 281.9156136620423, None, 589, 28.226242513961022, 73.67679508117088, None, 938.406400954232, 48.035259719087605, 621, 883.2285171108035, 801, 297.9853564291469, 642.2869004641448, 636.0991725673584, 977, 705, 954, 733, 493, 418.73162992971356, 470, 'Seven', 145.62003144004217, 873.3730550457321, 86, 887, 893, 104, 922.193232183253, True, 534.6075293845828, 560, 767.1550968615129, True, 786, 777.8388717938185, 971, 34.25839163171435, 361.760886838892, 510.6490299888919, 100, 617.809907312167, 39, 108.87268404185484, 233.16325245038988, 886.1379475144615, 942.4036162790741, 769, 419.972371695768, 154, 736, 598.040950486763, 620, 388, 229, 917, 360.611667290697, 66, 705, 392.300806723162, 247, 747.516399152557, 827.4015837998611, 662, 421.44384195730754, 120.93992837978773]
 
+numbers = nums.copy()
+numbers.append(1.23435)
+numbers.append("Twenty-seven")
+numbers.append(66.12)
+    
+
 groceries = {
     "Milk": 1.90,
     "Bread": 4.62,
     "Eggs": 6.37,
     "Cheese": 8.65,
+    "Cavaiar": 85.62,
     "Butter": 9.47,
     "Apples": 0.59,
     "Bananas": 0.29,
@@ -291,6 +323,7 @@ groceries = {
     "Cereal": 3.87,
     "Coffee": 4.42,
     "Tea": 4.15,
+    "Truffle": 503.82,
     "Sugar": 5.65,
     "Salt": 7.36,
     "Pepper": 7.17,
